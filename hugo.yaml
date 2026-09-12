@@ -5,7 +5,7 @@ theme: PaperMod
 params:
   homeInfoParams:
     Title: "Notes on ms"
-    Content: "Notes and expositions on machine learning topics."
+    Content: "Notes and expositions on machine learning topics. Coming Soon!"
 
   socialIcons:
     - name: "github"
