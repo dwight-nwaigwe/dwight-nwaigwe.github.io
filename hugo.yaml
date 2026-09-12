@@ -1,0 +1,14 @@
+title: "My Blog"
+baseURL: "https://dwight-nwaigwe.github.io/"
+theme: PaperMod
+
+params:
+  homeInfoParams:
+    Title: "Notes on ms"
+    Content: "Notes and expositions on machine learning topics."
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/dwight-nwaigwe"
+
+
