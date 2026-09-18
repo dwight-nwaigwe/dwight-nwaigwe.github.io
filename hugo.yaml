@@ -1,10 +1,9 @@
-title: "My Blog"
 baseURL: "https://dwight-nwaigwe.github.io/"
 theme: PaperMod
 
 params:
   homeInfoParams:
-    Title: "Notes on ms"
+    Title: "My name is Dwight, welcome to my blog"
     Content: "Notes and expositions on machine learning topics. Coming Soon!"
 
   socialIcons:
