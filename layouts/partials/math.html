@@ -12,7 +12,7 @@ function renderKaTeX() {
       {left: '\\[', right: '\\]', display: true}
     ],
     macros: {
-      "\\vec": String.raw`\mathbf{#1}`
+      "\\vec": "\\\\mathbf{#1}"
     },
     throwOnError: false
   });
