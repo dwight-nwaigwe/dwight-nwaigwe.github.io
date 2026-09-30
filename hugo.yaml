@@ -10,7 +10,7 @@ params:
     - name: "github"
       url: "https://github.com/dwight-nwaigwe"
 
-  math: true
+  math: false
 
 markup:
   goldmark:
