@@ -1,5 +1,5 @@
 ---
-date: 2026-09-12
+date: 2026-09-30
 draft: false
 title: "Transformers and a history of the sequence-to-sequence problem"
 ---
