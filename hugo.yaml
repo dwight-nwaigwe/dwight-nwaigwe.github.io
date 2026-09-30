@@ -12,9 +12,6 @@ params:
 
   math: true
   
-module:
-  imports:
-    - path: github.com/lsolesen/hugo-cite
   
 
 markup:
@@ -31,25 +28,3 @@ markup:
           block:
             - ['$$', '$$']
             - ['\[', '\]']
-steps:
-  - name: Checkout
-    uses: actions/checkout@v4
-    with:
-      submodules: recursive
-      fetch-depth: 0
-
-  # --- ADD THIS STEP ---
-  - name: Setup Go
-    uses: actions/setup-go@v5
-    with:
-      go-version: '>=1.20'
-
-  - name: Setup Hugo
-    uses: peaceiris/actions-hugo@v2  # or actions/configure-pages / hugo action
-    with:
-      hugo-version: 'latest'
-      extended: true
-
-  # Hugo will now successfully fetch the module
-  - name: Build with Hugo
-    run: hugo --minify
