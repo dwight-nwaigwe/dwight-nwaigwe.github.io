@@ -30,23 +30,4 @@ markup:
 module:
   imports:
     - path: github.com/loup-brun/hugo-cite
-steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: true
 
-      # IMPORTANT: Setup Go MUST come before Hugo runs
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
-
-       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.128.0'
-          extended: true
-
-      - name: Build with Hugo
-        run: hugo --minify
