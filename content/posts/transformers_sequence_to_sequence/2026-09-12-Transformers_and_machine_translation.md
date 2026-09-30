@@ -104,7 +104,7 @@ As mentioned before, transformers are popular because in practice they scale bet
 
 Vaswani et al. provides the following overview on how different architectures scale during inference:
 
-![Scaling Table](scaling.png)  
+![Scaling Table](./scaling.png)  
 *Figure 7: Computational complexity for inference on a sequence of length $n$ (from Vaswani et al.).*
 
 From the table, we see that when doing inference, the scaling for "recurrent" attention (i.e. the attention from Bahdanau et al.) is $\mathcal{O}(n d^2)$. This is because if we assume that the length of the input sequence is $\mathcal{O}(n)$, then there are $n$ passes through a recurrent neural network. At each pass, we do a matrix-vector multiplication which takes $\mathcal{O}(d^2)$ time, thus a total time for the algorithm is $\mathcal{O}(n d^2)$. It is mentioned in Vaswani et al. that $n$ is typically smaller than $d$ because sentences are not that long. However, this is not the case for how large language models are trained today. Large language models are trained on sequences of *tokens* (about 1/2 to 3/4 of a word length), but the sequences have thousands of tokens.
