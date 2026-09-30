@@ -42,10 +42,10 @@ steps:
         with:
           go-version: '1.22'
 
-      - name: Setup Hugo
+       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.128.0'
           extended: true
 
       - name: Build with Hugo
