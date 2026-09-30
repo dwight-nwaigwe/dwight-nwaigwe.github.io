@@ -26,8 +26,7 @@ markup:
           block:
             - ['$$', '$$']
             - ['\[', '\]']
-
 module:
   imports:
-    - path: github.com/mcanouil/hugo-cite
+    - path: github.com/wanweidong/hugo-cite
 
