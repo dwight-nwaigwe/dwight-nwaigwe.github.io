@@ -97,12 +97,7 @@ where the dimension of $Q$ is $m_q \times d_k$, that of $K$ is $m_k \times d_k$,
 
 ### 3.3 Scaling
 
-As mentioned before, transformers are popular because in practice they scale better than other architectures. If we let $m_q = m_k = n$ and $d_k = d_v = d$, then we have $\mathcal{O}(m_q d_k m_k) = \mathcal{O}(n^2 d)$. Thus, $\mathcal{O}(n^2 d)$ operations are required to predict the next element of a sequence given an input sequence of length $m_q$ and output sequence of length $m_k$. Values computed during attention are cached for later; thus, these operations do not all need to be repeated each time an output is given by a transformer.
-
-> **Computational Note:**
-> Technically, we showed the computational complexity to compute the next output element of a sequence given an input sequence of length $m_q$ and output sequence of length $m_k$. To show that the computational complexity is $\mathcal{O}(n^2 d)$, we compute $\sum_{q=1}^{n} f_q$, where $f_q$ is the number of operations needed for a sequence of length $q$. Assuming $m_q \approx m_k$, $f_q$ is approximately equal to $\mathcal{O}(m_q^2 d)$. Letting $m_1=1$ and $m_n=n$, the sum becomes $\mathcal{O}(n^2 d)$.
-
-Vaswani et al. provides the following overview on how different architectures scale during inference:
+As mentioned before, transformers are popular because in practice they scale better than other architectures. If we let $m_q = m_k = n$ and $d_k = d_v = d$, then we have $\mathcal{O}(m_q d_k m_k) = \mathcal{O}(n^2 d)$. Thus, $\mathcal{O}(n^2 d)$ operations are required to predict the next element of a sequence given an input sequence of length $m_q$ and output sequence of length $m_k$. Values computed  during attention are cached for later; thus, these operations do not all need to be repeated each time an output is given by a transformer.Vaswani et al. provides the following overview on how different architectures scale during inference:
 
 ![Scaling Table](./scaling.png)  
 *Figure 7: Computational complexity for inference on a sequence of length $n$ (from Vaswani et al.).*
