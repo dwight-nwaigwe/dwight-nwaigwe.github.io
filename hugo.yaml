@@ -11,6 +11,11 @@ params:
       url: "https://github.com/dwight-nwaigwe"
 
   math: true
+  
+module:
+  imports:
+    - path: github.com/lsolesen/hugo-cite
+  
 
 markup:
   goldmark:
