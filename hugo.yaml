@@ -11,3 +11,18 @@ params:
       url: "https://github.com/dwight-nwaigwe"
 
   math: true
+
+  markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        patterns:
+          inline:
+            - ['$', '$']
+            - ['\(', '\)']
+          block:
+            - ['$$', '$$']
+            - ['\[', '\]']
