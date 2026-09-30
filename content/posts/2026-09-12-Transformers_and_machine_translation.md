@@ -56,9 +56,9 @@ Sequences are first embedded into vectors whose entries are real values. For ins
 
 $$\text{hound} \mapsto (1,0,0), \quad \text{dog} \mapsto (0,1,0), \quad \text{jaguar} \mapsto (0,0,1)$$
 
-Secondly, a matrix of dimensions $d \times \vert{}V\vert{}$ multiplies these embedded vectors to create an embedding into $\mathbb{R}^{d}$, where $d$ is some chosen dimension. At this point we have our encoding matrix $X$, with row dimension $d$. Each encoded vector $\vec{x}_i$ belonging to $X$ is then transformed to a query, key, and value vector by the following:
+Secondly, a matrix of dimensions $d \times \vert{}V\vert{}$ multiplies these embedded vectors to create an embedding into $\mathbb{R}^{d}$, where $d$ is some chosen dimension. At this point we have our encoding matrix $X$, with row dimension $d$. Each encoded vector $\mathbf{x}_i$ belonging to $X$ is then transformed to a query, key, and value vector by the following:
 
-$$\begin{aligned} \vec{q}_i &= W^Q \vec{x}_i \\ \vec{k}_i &= W^K \vec{x}_i \\ \vec{v}_i &= W^V \vec{x}_i \end{aligned}$$
+$$\begin{aligned} \mathbf{q}_i &= W^Q \mathbf{x}_i \\ \mathbf{k}_i &= W^K \mathbf{x}_i \\ \mathbf{v}_i &= W^V \mathbf{x}_i \end{aligned}$$
 
 where $W^Q$ and $W^K$ are $d_k \times d$ matrices and $W^V$ is a $d_v \times d$ matrix. Thus, we have the query, key, and value matrices $Q, K, V$. There is considerable leeway in picking the constants $d, d_k, d_v$. In Vaswani et al., these values are respectively equal to 512, 64, and 64.
 
@@ -68,9 +68,9 @@ Attention is the heart of transformers and it is a method of determining relatio
 
 In the modern formulation of attention (Vaswani et al.), we compute attention using the concepts of keys, queries, and values. The queries and values correspond to the same sequence. The keys may come from the same sequence as the queries and values, or it may come from a different one. For simplicity, we consider self-attention meaning that the keys, queries, and values come from the same sequence. Then the attention calculations become:
 
-$$\begin{aligned} \text{score}(\vec{x}_i, \vec{x}_j) &= \frac{\vec{q}_i \cdot \vec{k}_j}{\sqrt{d_k}} \\ \alpha_{ij} &= \text{softmax}\left(\text{score}(\vec{x}_i, \vec{x}_j)\right) \\ \vec{\text{head}}_i &= \sum_{j} \alpha_{ij} \vec{v}_j \\ \vec{a} &= \text{concat}(\vec{\text{head}}_1, \vec{\text{head}}_2, \dots, \vec{\text{head}}_{m_q}) W^O \end{aligned}$$
+$$\begin{aligned} \text{score}(\mathbf{x}_i, \mathbf{x}_j) &= \frac{\mathbf{q}_i \cdot \mathbf{k}_j}{\sqrt{d_k}} \\ \alpha_{ij} &= \text{softmax}\left(\text{score}(\mathbf{x}_i, \mathbf{x}_j)\right) \\ \mathbf{\text{head}}_i &= \sum_{j} \alpha_{ij} \mathbf{v}_j \\ \mathbf{a} &= \text{concat}(\mathbf{\text{head}}_1, \mathbf{\text{head}}_2, \dots, \mathbf{\text{head}}_{m_q}) W^O \end{aligned}$$
 
-where $\vec{\text{head}}_i$ is a $1 \times d_v$ vector and $W^O$ is a $d_v \times d_{\text{model}}$ matrix and $m_q$ is the number of elements of the sequence. For two sequences of length $m_q$ and $m_k$, the matrix formulation for self-attention or cross-attention is:
+where $\mathbf{\text{head}}_i$ is a $1 \times d_v$ vector and $W^O$ is a $d_v \times d_{\text{model}}$ matrix and $m_q$ is the number of elements of the sequence. For two sequences of length $m_q$ and $m_k$, the matrix formulation for self-attention or cross-attention is:
 
 $$\text{head} = \text{softmax}\left(\frac{Q K^{\intercal}}{\sqrt{d_k}}\right) V$$
 
