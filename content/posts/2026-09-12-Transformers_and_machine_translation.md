@@ -25,7 +25,11 @@ We only touch on what I consider to be highlights in the Seq2Seq problem as ther
 
 A groundbreaking result in the Seq2Seq problem happened with connectionist temporal classification (CTC) (Graves et al., 2006). It is a purely neural network (RNN) approach and was more accurate than competing methods of its time (hidden Markov models). It is easiest to understand CTC with an example, in this case image-to-text recognition, one of its motivations along with speech to text transcription. Imagine an image of the word "that" which we would like to transcribe to characters. The image is stored in pixels. Further, imagine that the word is divided into equally sized rectangular blocks along the length of the word. According to CTC, an RNN is trained to output the probability of a label corresponding to each rectangle. The labels are then "collapsed" to form a word using a simple rule which states repeating labels are merged and hyphens (which denote transitions between characters) are removed. Specifically, according to the collapsing rule of CTC the output sequence `tthh-aaa-t` becomes `that`. This collapsing avoids the alignment problem—knowing how to divide the image into appropriately sized rectangles so that the RNN outputs exactly the label to which a rectangle corresponds. Put more simply, given a slicing of an image it is possible for consecutive rectangles to correspond to the same state/letter, hence the need for a collapsing procedure to make sure we only output one state/letter. The last important thing to mention about CTC is that the training process does not require that the rectangles be labeled—the algorithm learns how to label each rectangle, again avoiding the problem of alignment.
 
-![Bi-directional RNN](bidirectional_rnn.png) ![Predictions given by CTC](revuelta_dissertation_ctc.png)  
+
+<div style="display: flex; align-items: flex-start; justify-content: center; gap: 1cm;">
+  <img src="bidirectional_rnn.png" style="width: 50%;" alt="Bidirectional RNN">
+  <img src="revuelta_dissertation_ctc.png" style="width: 20%;" alt="Revuelta Dissertation CTC">
+</div> 
 *Figure 2: Left: A bi-directional RNN used for image-to-text recognition with CTC. Right: Predictions given by CTC. An input image is divided into rectangles. Each rectangle is some $x_t$ from the bi-directional RNN shown left. The output of CTC gives the most likely label corresponding to the rectangle. The training process does not require that the rectangles are labeled.*
 
 A shortcoming of the original formulation of CTC is that the collapsing step implies that the output sequence must be shorter than the input sequence length. This means that CTC would have a problem with sequences which do not meet this criterion. Graves (2012) does away with this constraint by extending CTC by modeling dependencies between outputs and inputs-outputs. Note that this is something that attention tries to do.
@@ -44,11 +48,26 @@ The next milestone in the Seq2Seq problem was Bahdanau et al. which introduced a
 
 As we learned in the last section, the predecessor of the transformer is the architecture found in Bahdanau et al. Transformers removed the RNN part (they still have recursion, so it is debatable whether one can call one a recurrent neural network), thereby allowing computations to be done in parallel as opposed to sequentially. The transformer modifies that architecture in several ways, and self-attention is one of them. The transformer from Vaswani et al. is shown below. In the next section we talk more in depth about the transformer but we exclude the positional encodings and the feedforward part of a transformer. Order matters in a sequence, and the job of positional encodings is to take this into account—something which must be done in the absence of an RNN.
 
-![Transformer Architecture](transformer.png) ![Attention Mechanism](attention.png)  
-*Figure 5: Left: The transformer architecture as introduced in Vaswani et al. Right: Pictorial representation of single head attention.*
+<table style="border: none; border-collapse: collapse; width: 100%; margin: 1em auto;">
+  <tr style="border: none;">
+    <!-- First subfigure column (30% width) -->
+    <td style="border: none; width: 40%; text-align: center; vertical-align: top; padding: 0 10px;">
+      <img src="transformer.png" width="100%" style="max-height: 350px; object-fit: contain; display: block; margin: 0 auto;" alt="Transformer architecture">
+    </td>
+    <!-- Second subfigure column (30% width) -->
+    <td style="border: none; width: 60%; text-align: center; vertical-align: top; padding: 0 10px;">
+      <img src="attention.png" width="100%" style="max-height: 350px; object-fit: contain; display: block; margin: 0 auto;" alt="Single head attention">
+    </td>
+  </tr>
+</table>
 
-![Encoder-Decoder Translation](encoder-decoder.png)  
-*Figure 6: An example of machine translation with a transformer. Cross-attention is still used in transformers. The `<s>` token indicates when decoding begins or ends.*
+<div style="font-size: 0.9em; color: #555; text-align: center; padding: 0 10px; margin-top: 10px;">
+  <strong>Figure 2:</strong> Left: the transformer as introduced in (Vaswani et al., 2017). 
+  Right: pictorial representation of single head attention from (Jurafsky & Martin).
+</div>
+
+
+
 
 ### 3.1 Embedding
 
