@@ -29,5 +29,5 @@ markup:
 
 module:
   imports:
-    - path: github.com/loup-brun/hugo-cite
+    - path: github.com/mcanouil/hugo-cite
 
