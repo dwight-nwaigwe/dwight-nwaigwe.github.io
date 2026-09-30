@@ -1,0 +1,4 @@
+{{- /* Include KaTeX math support if enabled in front matter or site config */ -}}
+{{- if .Params.math | default .Site.Params.math -}}
+  {{- partial "math.html" . -}}
+{{- end -}}
