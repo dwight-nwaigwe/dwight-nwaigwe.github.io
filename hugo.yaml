@@ -12,14 +12,14 @@ params:
 
   math: true
 
-  markup:
+markup:
   goldmark:
     renderer:
       unsafe: true
     extensions:
       passthrough:
         enable: true
-        patterns:
+        delimiters:
           inline:
             - ['$', '$']
             - ['\(', '\)']
