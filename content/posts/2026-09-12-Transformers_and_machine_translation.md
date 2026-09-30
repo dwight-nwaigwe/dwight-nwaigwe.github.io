@@ -4,7 +4,7 @@ draft: false
 title: "Transformers and a history of the sequence-to-sequence problem"
 ---
 
-
+Note: This is my first blog article, I still need to fix things like formatting and references!
 
 Transformers are the backbone of large language models (LLMs) and are the latest iteration of an attempt to solve the sequence-to-sequence ("Seq2Seq") problem. This problem is also sometimes spoken about in terms of *language modeling* when the context is language; a specific example is the machine translation problem which refers to translating between languages. There have been many approaches to solving the Seq2Seq problem but what makes the transformer stand out is that it has the best practical scalability (because it can be parallelized) among known architectures as well as having state-of-the-art accuracy. The goal of this article is to introduce the reader to the Seq2Seq problem, the various approaches which have been used to solve it, and how it led to the development of the transformer.
 
