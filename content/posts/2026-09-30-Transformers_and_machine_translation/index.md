@@ -108,4 +108,4 @@ From the table, we see that when doing inference, the scaling for "recurrent" at
 A typical dimension for an embedding is 300–5000. Thus, the claim that $n < d$ does not justify why transformers are used, although this was the setting in Vaswani et al. The real benefit comes from the ability to parallelize computations that are done in a transformer. In a bi-directional RNN, an input sequence is given to an RNN whose hidden states in both directions are concatenated. This process is sequential and not parallelizable. However, the attention mechanism used in a transformer is fully parallelizable across sequence length, hence the reason why transformers are faster for training and inference.
 
 ## References
-{{< render-bibliography >}}
+{{< bibliography >}}
