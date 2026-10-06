@@ -269,8 +269,12 @@
     "type": "book",
     "title": "Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models",
     "author": [
-      {"family": "Jurafsky", "given": "Daniel"},
-      {"family": "Martin", "given": "James"}
+      { "given": "Daniel", "family": "Jurafsky" },
+      { "given": "James", "family": "Martin" }
+    ],
+    "issued": { "date-parts": [[2024]] }
+  }
+]
 
 
 
