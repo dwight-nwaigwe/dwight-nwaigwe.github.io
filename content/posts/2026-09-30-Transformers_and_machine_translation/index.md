@@ -106,5 +106,41 @@ From the table, we see that when doing inference, the scaling for "recurrent" at
 
 A typical dimension for an embedding is 300–5000. Thus, the claim that $n < d$ does not justify why transformers are used, although this was the setting in Vaswani et al. The real benefit comes from the ability to parallelize computations that are done in a transformer. In a bi-directional RNN, an input sequence is given to an RNN whose hidden states in both directions are concatenated. This process is sequential and not parallelizable. However, the attention mechanism used in a transformer is fully parallelizable across sequence length, hence the reason why transformers are faster for training and inference.
 
+
 ## References
-{{< bibliography />}}
+
+[1] Bahdanau, Cho, and Bengio. “Neural Machine Translation by Jointly Learning to Align and Translate.” ICLR 2015.
+
+[2] Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin. “Attention is All you Need.” NeurIPS 2017.
+
+[3] Graves, Fernández, Gomez, and Schmidhuber. “Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks.” ICML 2006.
+
+[4] Godoy. “dl-visuals.” dl-visuals 2021.
+
+[5] Jurafsky and Martin. “Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models.” 2024.
+
+[6] Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, and Bengio. “Generative Adversarial Nets.” NeurIPS 2014.
+
+[7 Graves and Jaitly. “Towards End-To-End Speech Recognition with Recurrent Neural Networks.” ICML 2014.
+
+[8] Revuelta. “Continuous Onine Handwriting Recognition using Deep Learning Models.” Universidad Rey Juan Carlos 2021.
+
+[9] AlKendi, Gechter, Heyberger, and Guyeux. “Advancements and challenges in handwritten Text Recognition: A comprehensive survey.” J. Imaging 2024.
+
+[10] Mikolov, Karafiát, Burget, Černocký, and Khudanpur. “Recurrent neural network based language model.” Interspeech 2010.
+
+[11] Sundermeyer, Schlüter, and Ney. “LSTM neural networks for language modeling.” Interspeech 2012.
+
+[12] Kalchbrenner and Blunsom. “Recurrent Continuous Translation Models.” EMNLP 2013.
+
+[13] Cho, van Merriënboer, Gulcehre, Bahdanau, Bougares, Schwenk, and Bengio. “Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation.” EMNLP 2014.
+
+[14] Sutskever, Vinyals, and Le. “Sequence to sequence learning with neural networks.” NeurIPS 2014.
+
+[15] Devlin, Zbib, Huang, Lamar, Schwartz, and Makhoul. “Fast and Robust Neural Network Joint Models for Statistical Machine Translation.” ACL 2014.
+
+[16] Bengio, Ducharme, Vincent, and Jauvin. “A Neural Probabilistic Language Model.” Journal of Machine Learning Research 2003.
+
+[17] Graves. “Sequence Transduction with Recurrent Neural Networks.” arXiv preprint arXiv:1211.3711 2012.
+
+[18] Graves. “Supervised Sequence Labelling with Recurrent Neural Networks.” Technical University of Munich 2008.
